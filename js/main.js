@@ -1,29 +1,33 @@
 //Constante
-const numeroRandom = Math.floor(Math.random() * 50) + 1;
+const numeroRandom = 23;
 
 // Funciones
 function checkUsuario() {
     const textoUsuario = document.getElementById('textoUsuario');
     const invitado = parseInt(textoUsuario.value);
 
-    if (isNaN(invitado)) {
-        setMessage('ERROR! INGRESA UN NÚMERO VÁLIDO, POR FAVOR.');
+    console.log('Número correcto' , numeroRandom);
+
+    if (isNaN(invitado) || invitado < 1 || invitado >50) {
+        alert('ERROR! INGRESA UN NÚMERO VÁLIDO, POR FAVOR.');
         return;
     }
 
-    if (invitado === numeroRandom) {
-        setMessage('¡WoW! ¡Has adivinado el número correcto!');
-    } else if (invitado < numeroRandom) {
-        setMessage('Muuuuy cerca, pero es mayor. Intenta de nuevo.');
-    } else {
-        setMessage('Casiii, pero es menor. Intenta de nuevo.');
-    }
-}
+    console.log('Número ingresado:' , invitado);
 
-// Mensaje
-function setMessage(mensaje) {
-    const messageElement = document.getElementById('mensaje');
-    messageElement.textContent = mensaje;
+    //Ciclo
+    let intentos = 0;
+    while (invitado !== numeroRandom){
+        if (invitado < numeroRandom){
+            alert('Muy cerca! Pero es mayor. Intenta de nuevo');
+        } else{
+            alert('Casi! Pero es menor. Intenta de nuevo');
+        }
+        return;
+    }
+
+    //Mensaje
+    alert('WoW! Has adivinado el número correcto!')
 }
 
 // Event
