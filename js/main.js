@@ -32,3 +32,31 @@ function checkUsuario() {
 
 // Event
 document.getElementById('boton').addEventListener('click', checkUsuario);
+
+
+    //Ciclo
+//     let intentos = 0;
+//     do{
+//         if(invitado < numeroRandom){
+//             alert('Muy cerca! Pero es mayor. Intenta de nuevo');
+//         } else if (invitado > numeroRandom){
+//             alert('Casi! Pero es menor. Intenta de nuevo');
+//         }
+//         intentos++;
+//         // invitado = parseInt(prompt('Intenta de nuevo'));
+//     } while (invitado !== numeroRandom)
+
+//     //Mensaje
+//     alert('WoW! Has adivinado el número correcto!')
+
+//     let contador;
+//     for (contador =0; invitado !== numeroRandom; contador++) {
+//         if (invitado < numeroRandom) {
+//             alert('Muy cerca! Pero es mayor. Intenta de nuevo');
+//         } else if (invitado > numeroRandom){
+//             alert('Casi! Pero es menor. Intenta de nuevo');
+//         }
+//         return;
+//     }
+//     alert('WoW! Has adivinado el número correcto!')
+// }
