@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Adivinanza</title>
+    <title>Pelea entre Gojo y Kakashi</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
-    <h1>Juego de Adivinanza</h1>
-    <p>Adivina el número entre 1 y 50:</p>
-    <input type="text" id="textoUsuario">
-    <button id="boton">Adivinar</button>
-    <p id="mensaje"></p>
-    <div class="gif">
-        <img src="./src/adivinanza.gif" alt="Maggie simpsons eligiendo un chupete">
+    <div class="container">
+        <h1>Pelea entre Gojo y Kakashi</h1>
+        <div id="senseis">
+            <img id="gojoInicio" src="./src/Gojo.jpg" alt="Gojo">
+            <img id="kakashiInicio" src="./src/kakashi.png" alt="Kakashi">
+            <img id="gojoPierde" src="./src/GojoDerrota.jpg" alt="Gojo Pierde">
+            <img id="KakashiGana" src="./src/KakashiGana.jpg" alt="Kakashi Gana">
+            <img id="gojoGana" src="./src/GojoGana.jpg" alt="Gojo Gana">
+            <img id="kakashiPierde" src="./src/KakasheDerrota.webp" alt="Kakashi Pierde">
+        </div>
+        <div id="resultado">
+            <img src="./src/Vs.webp" alt="Gojo vs Kakashi">
+        </div>
+        <button onclick="comenzarPelea()">Comenzar Pelea</button>
     </div>
-<script src="./js/main.js"></script>
+    
+    <script src="./js/main.js"></script>
 </body>
 </html>

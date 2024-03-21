@@ -1,27 +1,29 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #d9cf9b;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
     text-align: center;
-    background-color: rgba(163, 121, 24, 0.778);
-}
-
-h1 {
-    color: #3e0e0eb4;
-}
-
-input {
-    padding: 5px;
-    margin: 5px;
 }
 
 button {
-    padding: 5px 10px;
-    margin: 5px;
+    padding: 10px 20px;
+    background-color: #070807;
+    color: rgb(246, 178, 178);
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-#mensaje {
-    margin-top: 20px;
-    font-weight: bold;
+button:hover {
+    background-color: #070c07;
+}
+
+img {
+    width: 200px; 
+    height: auto; 
+    padding: 10px 20px;
 }

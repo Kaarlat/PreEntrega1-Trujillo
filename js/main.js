@@ -1,62 +1,62 @@
-//Constante
-const numeroRandom = 23;
+const Gojo = {
+    nombre: "Satoru Gojo",
+    poder: 100,
+    defensa: 80,
+    velocidad: 90,
+    imagen: "gojoInicio"
+};
 
-// Funciones
-function checkUsuario() {
-    const textoUsuario = document.getElementById('textoUsuario');
-    const invitado = parseInt(textoUsuario.value);
+const Kakashi = {
+    nombre: "Kakashi Hatake",
+    poder: 95,
+    defensa: 85,
+    velocidad: 85,
+    imagen: "kakashiInicio"
+};
 
-    console.log('Número correcto' , numeroRandom);
+const senseis = [Gojo, Kakashi];
 
-    if (isNaN(invitado) || invitado < 1 || invitado >50) {
-        alert('ERROR! INGRESA UN NÚMERO VÁLIDO, POR FAVOR.');
-        return;
+function peleaSenseis(senseis) {
+    let turnos = 0;
+
+    while (senseis[0].poder > 0 && senseis[1].poder > 0 && turnos < 10) {
+        turnos++;
+
+        const primerAtacante = Math.floor(Math.random() * 2);
+        const primerObjetivo = primerAtacante === 0 ? 1 : 0;
+
+        const golpes = Math.floor(Math.random() * 20);
+
+        
+        senseis[primerObjetivo].poder -= golpes;
+
+        document.getElementById("gojoInicio").src = senseis [0].imagen;
+        document.getElementById("kakashiInicio").src = senseis [1].imagen;
+        document.getElementById("resultado").innerText = `Turno ${turnos}: ${senseis[0].nombre}: ${senseis[0].poder} puntos de vida, ${senseis[1].nombre}: ${senseis[1].poder} puntos de vida`;
+
+        if (senseis[0].poder <= 0 || senseis[1].poder <= 0) break;
     }
 
-    console.log('Número ingresado:' , invitado);
-
-    //Ciclo
-    let intentos = 0;
-    while (invitado !== numeroRandom){
-        if (invitado < numeroRandom){
-            alert('Muy cerca! Pero es mayor. Intenta de nuevo');
-        } else{
-            alert('Casi! Pero es menor. Intenta de nuevo');
-        }
-        return;
+    
+    let resultadoFinal = "";
+    if (senseis[0].poder <= 0 && senseis[1].poder <= 0) {
+        resultadoFinal = "¡La pelea terminó en empate!";
+    } else if (senseis[0].poder <= 0) {
+        resultadoFinal = `${senseis[1].nombre} es el ganador de la pelea.`;
+        document.getElementById("gojoGana").src = "./src/GojoGana.jpg";
+        document.getElementById("kakashiPierde").src = "./src/KakasheDerrota.webp";
+    } else {
+        resultadoFinal = `${senseis[0].nombre} es el ganador de la pelea.`;
+        document.getElementById("KakashiGana").src = "./src/KakashiGana.jpg";
+        document.getElementById("gojoPierde").src = "./src/GojoDerrota.jpg";
     }
 
-    //Mensaje
-    alert('WoW! Has adivinado el número correcto!')
+    
+    document.getElementById("resultado").innerText += `\n${resultadoFinal}`;
 }
 
-// Event
-document.getElementById('boton').addEventListener('click', checkUsuario);
 
-
-    //Ciclo
-//     let intentos = 0;
-//     do{
-//         if(invitado < numeroRandom){
-//             alert('Muy cerca! Pero es mayor. Intenta de nuevo');
-//         } else if (invitado > numeroRandom){
-//             alert('Casi! Pero es menor. Intenta de nuevo');
-//         }
-//         intentos++;
-//         // invitado = parseInt(prompt('Intenta de nuevo'));
-//     } while (invitado !== numeroRandom)
-
-//     //Mensaje
-//     alert('WoW! Has adivinado el número correcto!')
-
-//     let contador;
-//     for (contador =0; invitado !== numeroRandom; contador++) {
-//         if (invitado < numeroRandom) {
-//             alert('Muy cerca! Pero es mayor. Intenta de nuevo');
-//         } else if (invitado > numeroRandom){
-//             alert('Casi! Pero es menor. Intenta de nuevo');
-//         }
-//         return;
-//     }
-//     alert('WoW! Has adivinado el número correcto!')
-// }
+function comenzarPelea() {
+    alert("¡La pelea entre Gojo y Kakashi ha comenzado!");
+    peleaSenseis(senseis);
+}
